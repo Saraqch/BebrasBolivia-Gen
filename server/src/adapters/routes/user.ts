@@ -1,7 +1,7 @@
+import { createContainer } from '../../config/container';
 import { createUserController, type CreateUserInput } from '../controllers/user/create';
 import { getAllUsersController } from '../controllers/user/getAll';
 import { updateUserController, type UpdateUserInput } from '../controllers/user/update';
-import { createContainer } from '../../config/container';
 
 import type { RouterModule } from './types';
 

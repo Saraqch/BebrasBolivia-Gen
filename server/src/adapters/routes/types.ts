@@ -1,6 +1,6 @@
 export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
 
-export type RouteHandler = (payload?: unknown) => Promise<unknown> | unknown;
+export type RouteHandler = (payload?: unknown) => unknown;
 
 export interface RouteDefinition {
   handler: RouteHandler;

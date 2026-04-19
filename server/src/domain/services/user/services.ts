@@ -1,6 +1,6 @@
+import { generateId } from '../../../utils/script';
 import type { UserEntity } from '../../entities/user';
 import type { UserRepository } from '../../repositories/user';
-import { generateId } from '../../../utils/script';
 
 export interface CreateUserInput {
   email: string;
