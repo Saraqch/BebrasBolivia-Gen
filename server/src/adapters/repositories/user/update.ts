@@ -6,5 +6,5 @@ export const updateUserRepository = (
   id: string,
   patch: Partial<UserEntity>,
 ): Promise<UserEntity | null> => {
-  return userStore.update(id, patch);
+  return Promise.resolve(userStore.update(id, patch));
 };

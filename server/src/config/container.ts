@@ -8,10 +8,10 @@ export interface AppContainer {
 export const createContainer = (): AppContainer => {
   return {
     userRepository: {
-      create: (user) => userStore.create(user),
-      findAll: () => userStore.findAll(),
-      findById: (id) => userStore.findById(id),
-      update: (id, user) => userStore.update(id, user),
+      create: (user) => Promise.resolve(userStore.create(user)),
+      findAll: () => Promise.resolve(userStore.findAll()),
+      findById: (id) => Promise.resolve(userStore.findById(id)),
+      update: (id, user) => Promise.resolve(userStore.update(id, user)),
     },
   };
 };
