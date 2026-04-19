@@ -18,7 +18,9 @@ export const registerRoutes = (
 
   for (const moduleConfig of modules) {
     for (const route of moduleConfig.routes) {
-      const fullPath = normalizePath(`${routePrefix}${moduleConfig.basePath}${route.path}`);
+      const fullPath = normalizePath(
+        `${routePrefix}${moduleConfig.basePath}${route.path}`,
+      );
       const key = `${route.method}:${fullPath}`;
 
       if (seen.has(key)) {

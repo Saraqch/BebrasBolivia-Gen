@@ -1,8 +1,8 @@
 export interface UserEntity {
-	id: string;
-	email: string;
-	name: string;
-	role?: string;
-	createdAt?: Date;
-	updatedAt?: Date;
+  id: string;
+  email: string;
+  name: string;
+  role?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
 }

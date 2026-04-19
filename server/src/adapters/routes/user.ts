@@ -12,7 +12,8 @@ export const userRoutes: RouterModule = {
   moduleName: 'user',
   routes: [
     {
-      handler: (payload: unknown) => createUserController(container.userRepository, payload as CreateUserInput),
+      handler: (payload: unknown) =>
+        createUserController(container.userRepository, payload as CreateUserInput),
       method: 'POST',
       path: '/create',
     },
@@ -22,7 +23,12 @@ export const userRoutes: RouterModule = {
       path: '/getAll',
     },
     {
-      handler: (payload: unknown) => updateUserController(container.userRepository, String((payload as { id?: string }).id ?? ''), payload as UpdateUserInput),
+      handler: (payload: unknown) =>
+        updateUserController(
+          container.userRepository,
+          String((payload as { id?: string }).id ?? ''),
+          payload as UpdateUserInput,
+        ),
       method: 'PUT',
       path: '/update',
     },

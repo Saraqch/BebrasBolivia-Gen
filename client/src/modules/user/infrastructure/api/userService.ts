@@ -9,7 +9,10 @@ export const userApiService = {
   },
 
   create: async (payload: Omit<UserViewModel, 'id'>): Promise<UserViewModel> => {
-    return httpClient.post<UserViewModel, Omit<UserViewModel, 'id'>>('/user/create', payload);
+    return httpClient.post<UserViewModel, Omit<UserViewModel, 'id'>>(
+      '/user/create',
+      payload,
+    );
   },
 
   update: async (

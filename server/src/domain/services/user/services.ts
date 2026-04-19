@@ -43,6 +43,8 @@ export const updateUserService = async (
   });
 };
 
-export const listUsersService = async (repository: UserRepository): Promise<UserEntity[]> => {
+export const listUsersService = async (
+  repository: UserRepository,
+): Promise<UserEntity[]> => {
   return repository.findAll();
 };
