@@ -22,6 +22,7 @@
     "npm": ">=9.0.0"
   },
   "devDependencies": {
+    "@types/jest": "^30.0.0",
     "@typescript-eslint/eslint-plugin": "^8.58.1",
     "@typescript-eslint/parser": "^8.58.1",
     "eslint": "^9.39.4",
@@ -32,6 +33,7 @@
     "jest": "^30.3.0",
     "lint-staged": "^16.4.0",
     "prettier": "^3.8.2",
+    "ts-jest": "^29.4.9",
     "typescript": "^6.0.2"
   }
 }
