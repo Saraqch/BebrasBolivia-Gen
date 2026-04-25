@@ -4,7 +4,7 @@
   "description": "BebrasBolivia Gen - Collaborative Platform (Monorepo)",
   "private": true,
   "workspaces": [
-    "server",
+    "services",
     "client"
   ],
   "scripts": {
@@ -12,10 +12,10 @@
     "build": "npm run build --workspaces",
     "test": "npm run test --workspaces",
     "lint": "npm run lint --workspaces",
-    "format": "npm run format --workspaces",
-    "format:check": "npm run format:check --workspaces",
+    "format": "npm run format --workspaces --if-present",
+    "format:check": "npm run format:check --workspaces --if-present",
     "clean": "npm run clean --workspaces && rm -rf node_modules",
-    "install:all": "npm ci && npm ci --workspace=server && npm ci --workspace=client"
+    "install:all": "npm ci && npm ci --workspace=services && npm ci --workspace=client"
   },
   "engines": {
     "node": ">=18.0.0",

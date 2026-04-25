@@ -33,7 +33,7 @@ jobs:
       - name: Check standard (Lint)
         run: npm run lint
       - name: Type check (TypeScript)
-        run: npx tsc --noEmit
+        run: npm --prefix client run type-check
       - name: Run Tests
         run: npm test
         env:

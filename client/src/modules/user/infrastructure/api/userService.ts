@@ -1,7 +1,9 @@
+import { getEnvConfig } from '../../../../shared/infrastructure/config/env';
 import { createHttpClient } from '../../../../shared/infrastructure/http/HttpClient';
 import type { UserViewModel } from '../../domain/UserViewModel';
 
-const httpClient = createHttpClient();
+const env = getEnvConfig();
+const httpClient = createHttpClient({ baseUrl: env.userServiceUrl });
 
 export const userApiService = {
   list: (): Promise<UserViewModel[]> => {
