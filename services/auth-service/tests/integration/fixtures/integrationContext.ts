@@ -1,4 +1,4 @@
-import request = require('supertest');
+import request from 'supertest';
 import { app } from '../../../src/app';
 
 export interface IntegrationContext {
