@@ -1,39 +1,55 @@
 # Services Workspace
 
-Esta carpeta contiene la base de microservicios por dominio para trabajo en equipo.
+Esta carpeta contiene el backend en arquitectura de microservicios.
 
-## Servicios
+## Microservicios disponibles
 
-- auth-service
-- user-service
-- team-service
+- `auth-service`
+- `user-service`
+- `team-service`
 
-Cada servicio sigue una estructura alineada:
+## Estructura base por servicio
 
 ```text
-src/
-  app.ts
-  server.ts
-  config/
-  shared/http/
-  modules/<domain>/
-    domain/
-    application/
-    infrastructure/
-    presentation/http/
+<service>/
+|-- src/
+|   |-- app.ts
+|   |-- server.ts
+|   |-- config/
+|   |-- modules/<domain>/
+|   `-- shared/http/
+|-- tests/
+|   |-- unit/
+|   `-- integration/
+|-- jest.config.cjs
+|-- tsconfig.json
+`-- package.json
 ```
 
-## Scripts de equipo
+## Variables de entorno
 
-Desde esta carpeta:
+Archivo recomendado: `services/.env` basado en `services/.env.example`.
+
+```env
+AUTH_SERVICE_PORT=4101
+USER_SERVICE_PORT=4102
+TEAM_SERVICE_PORT=4103
+```
+
+## Scripts (desde `services/`)
 
 ```bash
+npm run dev
 npm run dev:auth
 npm run dev:user
 npm run dev:team
+
+npm run test
+npm run lint
+npm run build
 ```
 
-Tests por servicio:
+## Tests por microservicio
 
 ```bash
 npm --prefix auth-service run test:unit
@@ -46,30 +62,34 @@ npm --prefix team-service run test:unit
 npm --prefix team-service run test:integration
 ```
 
-Compilar todos:
-
-```bash
-npm run build
-```
-
 ## Puertos por defecto
 
-- auth-service: 4101
-- user-service: 4102
-- team-service: 4103
+- `auth-service`: `4101`
+- `user-service`: `4102`
+- `team-service`: `4103`
 
 ## Docker Compose
 
-Para levantar todo con contenedores:
+Desde la raiz del repositorio:
 
 ```bash
 docker compose up
 ```
 
-## Convenciones para colaboración
+Actualmente el compose incluye PostgreSQL y `auth-service`.
 
-- Mantener contratos en `domain` y lógica en `application`.
+## Convenciones de colaboración
+
+- Mantener contratos de negocio en `domain`.
+- Orquestar casos de uso en `application`.
 - Implementaciones concretas en `infrastructure`.
-- Rutas y controllers HTTP en `presentation/http`.
-- Evitar lógica de negocio directa en `server.ts` o `app.ts`.
-- Reutilizar setup y factories desde `tests/integration/fixtures`.
+- Mantener `server.ts` y `app.ts` sin lógica de negocio.
+- Reutilizar `tests/integration/fixtures` para escenarios integrados.
+
+## Validación mínima antes de PR
+
+```bash
+npm run lint
+npm run test
+npm run build
+```
