@@ -81,30 +81,6 @@ Microservicios:
 Frontend:
 - client (Next.js): `3000` (por defecto)
 
-## Variables de entorno
-
-### Backend (`services/.env`)
-
-Basado en `services/.env.example`:
-
-```env
-AUTH_SERVICE_PORT=4101
-USER_SERVICE_PORT=4102
-TEAM_SERVICE_PORT=4103
-```
-
-### Frontend (`client/.env`)
-
-Basado en `client/.env.example`. Variables relevantes:
-
-```env
-NEXT_PUBLIC_AUTH_SERVICE_URL=http://localhost:4101
-NEXT_PUBLIC_USER_SERVICE_URL=http://localhost:4102
-NEXT_PUBLIC_TEAM_SERVICE_URL=http://localhost:4103
-```
-
-Nota: tambien existe compatibilidad legacy con `NEXT_PUBLIC_API_URL`.
-
 ## Scripts principales
 
 Desde la raiz:
