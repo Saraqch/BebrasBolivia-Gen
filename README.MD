@@ -8,7 +8,6 @@ Arquitectura actual:
 - Testing: Jest
 - Calidad: ESLint + Prettier + Husky
 
-Importante: ya no existe la carpeta `server/`. El backend vive en `services/`.
 
 ## Estructura actual
 
