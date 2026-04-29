@@ -151,13 +151,26 @@ npm run build
 
 Workflow: `.github/workflows/ci.yml`
 
-En push/PR hacia `main` o `develop` ejecuta:
+En push a `feat/*`, `develop` y `main`, y en PR hacia `main` o `develop`, ejecuta:
 1. Instalacion limpia
 2. Format check
 3. Lint
 4. Type-check (client)
 5. Tests
 6. Build
+
+## Estrategia de ramas
+
+- `develop`: rama de integracion. Aqui se suben y validan cambios del equipo.
+- `main`: rama principal estable. Solo recibe cambios ya validados desde `develop`.
+
+Flujo recomendado:
+1. Crear rama `feat/*` desde `develop`.
+2. Abrir PR de `feat/*` hacia `develop`.
+3. Cuando `develop` este estable, abrir PR de `develop` hacia `main`.
+
+Checks obligatorios:
+- El workflow ya ejecuta checks para PR a `develop` y `main`.
 
 ## Troubleshooting rapido
 
